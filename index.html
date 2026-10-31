@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DraconicFrost | Halloween Gamer</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #0b1020;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header, section, footer {
+      text-align: center;
+    }
+
+    header { padding: 30px 0; }
+
+    h1 {
+      font-size: clamp(32px, 8vw, 58px);
+      color: #9c7cff;
+      margin: 15px 0;
+    }
+
+    h2 { color: #f5f5ff; }
+
+    .logo {
+        width: 300px;
+         max-width: 90%;
+        height: auto;
+         object-fit: contain;
+    }
+
+    .panel {
+      background: #171d32;
+      border: 1px solid #343c56;
+      border-radius: 20px;
+      padding: 25px;
+      margin: 20px 0;
+    }
+
+    .foto {
+      width: 100%;
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
+
+    .premio {
+      font-size: 36px;
+      color: #ffb347;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 25px;
+      margin: 12px 5px;
+      background: #7c3aed;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover { background: #a855f7; }
+
+    .servicios {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .servicio {
+      background: #252c46;
+      border-radius: 12px;
+      padding: 18px 8px;
+    }
+
+    .info {
+      color: #b9c2d6;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 25px;
+      color: #aaa;
+    } 
+    
+    @media (max-width: 480px) {
+        main { padding: 12px; }
+        .panel { padding: 18px 14px; }
+        .premio { font-size: 28px; }
+        .btn { max-width: 100%; }
+        .servicios { gap: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+<main>
+
+  <!-- MARCA -->
+  <header>
+    <img src="img/draco.png" class="logo"
+         alt="Logo DraconicFrost"
+         onerror="this.style.display='none'">
+
+    <p>🎃 HALLOWEEN GAMER 2026 🎃</p>
+    <h1>DRACONICFROST</h1>
+    <p>Tu zona gamer en Obrajes, La Paz</p>
+  </header>
+
+  <!-- PROMOCIÓN -->
+  <section class="panel">
+    <h2 class="premio">🎁 ¡1 HORA GRATIS!</h2>
+
+
+
+    <a id="claim" class="btn" href="#">
+      🎮 RECLAMAR RECOMPENSA
+    </a>
+
+    <p class="info">
+      Una recompensa por persona.<br>
+      Se puede canjear en cualquier momento fuera de los horarios de 11:00 a 14:30 <br>
+      Válido hasta el 24 de diciembre de 2026.
+    </p>
+
+    <p id="setup" hidden>
+      La promoción todavía no está conectada.
+    </p>
+  </section>
+
+  <!-- FOTO DEL LOCAL -->
+  <section class="panel">
+    <h2>🔥 CONOCE DRACONICFROST</h2>
+
+    <p>
+      Disfruta de videojuegos, PC Gamer,
+      PlayStation y mucho más.
+    </p>
+
+    <img src="img/tienda.png" class="foto"
+         alt="Interior de DraconicFrost"
+         onerror="this.style.display='none'">
+  </section>
+
+  <!-- UBICACIÓN -->
+  <section class="panel">
+    <h2>📍 ¿DÓNDE ESTAMOS?</h2>
+
+    <p>
+      Obrajes, Av. Hernando Siles,
+      entre calles 12 y 13.<br>
+      La Paz, Bolivia.
+    </p>
+
+    <img src="img/ubi.png" class="foto"
+         alt="Ubicación del local"
+         onerror="this.style.display='none'">
+
+    <a class="btn" target="_blank" rel="noopener"
+        href="https://maps.app.goo.gl/pjhoz8L8XeE4GqGM8">
+     📍 CÓMO LLEGAR
+    </a>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="panel">
+    <h2>🕹️ NUESTROS SERVICIOS</h2>
+
+    <div class="servicios">
+      <div class="servicio">🖥️ PC Gamer</div>
+      <div class="servicio">🎮 PlayStation</div>
+      <div class="servicio">👾 Arcade</div>
+      <div class="servicio">🥤 Snacks</div>
+    </div>
+  </section>
+
+  <footer>
+    DRACONICFROST © 2026<br>
+    Obrajes — La Paz
+  </footer>
+
+</main>
+
+<script>
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwiuMM-vJgzsPSZaDlJGoxsV5jiE-n9ZPrai8q_48EjIkFt70mXUO1J4jreMlUtqj4-/exec"
+    "PEGA_AQUI_LA_URL_DE_TU_APPS_SCRIPT";
+
+  const btn = document.getElementById("claim");
+
+  if (APPS_SCRIPT_URL.startsWith("https://")) {
+    btn.href = APPS_SCRIPT_URL + "?mode=claim";
+  } else {
+    btn.addEventListener("click", function(e) {
+      e.preventDefault();
+      document.getElementById("setup").hidden = false;
+    });
+  }
+</script>
+
+</body>
+</html>
